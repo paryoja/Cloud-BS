@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<project name="Hadoop" default="package">
+
+	<!-- Load all the default properties, and any the user wants    -->
+	<!-- to contribute (without having to type -D or edit this file -->
+	<property file="${user.home}/build.properties" />
+	<property file="${basedir}/build.properties" />
+
+	<property name="build.encoding" value="ISO-8859-1" />
+
+	<property name="hadoop.dir" value="/home/yjpark/hadoop" />
+	<property name="lib.dir" value="./lib" />
+	<property name="class.dir" value="${hadoop.dir}/build/classes" />
+
+	<property name="works.dir" value="${basedir}/src" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="build.classes" value="${build.dir}/classes" />
+	<property name="build.works" value="${build.dir}/works" />
+
+	<property name="javac.debug" value="on" />
+	<property name="javac.optimize" value="on" />
+	<property name="javac.deprecation" value="off" />
+	<property name="javac.version" value="1.8" />
+	<property name="javac.args" value="-Xlint" />
+	<property name="javac.args.warnings" value="-Xlint:unchecked" />
+
+	<!-- the normal classpath -->
+	<path id="classpath">
+		<pathelement location="${class.dir}" />
+		<pathelement location="${build.classes}" />
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+			<exclude name="**/excluded/" />
+		</fileset>
+		<pathelement location="${conf.dir}" />
+	</path>
+
+	<!-- ====================================================== -->
+	<!-- Stuff needed by all targets                            -->
+	<!-- ====================================================== -->
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.classes}" />
+		<mkdir dir="${build.works}" />
+	</target>
+
+	<target name="compile-works" depends="init">
+		<javac encoding="${build.encoding}" srcdir="${works.dir}" includes="**/*.java" destdir="${build.works}" debug="${javac.debug}" optimize="${javac.optimize}" target="${javac.version}" source="${javac.version}" deprecation="${javac.deprecation}" includeantruntime="false">
+			<compilerarg line="${javac.args} ${javac.args.warnings}" />
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- Make the Hadoop work jar.                                          -->
+	<!-- ================================================================== -->
+	<!--                                                                    -->
+	<!-- ================================================================== -->
+	<target name="align-works" depends="compile-works">
+		<jar jarfile="${build.dir}/align.jar" basedir="${build.works}">
+			<zipgroupfileset dir="./lib">
+				<include name="commons-cli-1.3.1.jar" />
+				<include name="fastutil-7.0.11.jar" />
+				<include name="junit.jar" />
+				<!--
+				<include name="kryo-2.21-all.jar" />
+				<include name="commons-csv-20070724.jar" />
+				<include name="commons-math3-3.6.jar" />
+				-->
+			</zipgroupfileset>
+			<manifest>
+				<attribute name="Main-Class" value="bio/align/Driver" />
+			</manifest>
+		</jar>
+	</target>
+
+	<!-- ================================================================== -->
+	<!-- D I S T R I B U T I O N                                            -->
+	<!-- ================================================================== -->
+	<!--                                                                    -->
+	<!-- ================================================================== -->
+	<target name="package" depends="align-works">
+		<copy file="${build.dir}/align.jar" todir="${basedir}/run" />
+	</target>
+
+</project>
