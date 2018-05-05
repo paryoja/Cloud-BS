@@ -180,7 +180,7 @@ public class AlignMapper extends Mapper<LongWritable, Text, Text, Text> {
 	public String genBowtieQuery( String refPrefix, String inputFile, String outputFile ) {
 		StringBuilder bld = new StringBuilder();
 
-		bld.append( "/home/hadoop/bio/bowtie2-2.2.9/bowtie2 " );
+		bld.append( "bowtie2 " );
 		bld.append( "--local " );
 		bld.append( "--quiet " );
 		bld.append( "-p 1 " );
