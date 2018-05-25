@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./git.sh
+#./git.sh
 
 #hdfs dfs -rm -r /user/hadoop/temp
 #hdfs dfs -rm -r /home/hadoop/mapred/output  /user/hadoop/mapred 
