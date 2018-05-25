@@ -25,8 +25,8 @@
 hdfs dfs -rm -r /user/hadoop/temp
 hdfs dfs -rm -r bypass_mr
 ./clear_emit.sh
-time yarn jar align.jar WithoutBowtie -ifile biodata/humandata_100m.fa -ofile bypass_mr/output -rfile /home/hadoop/bio/chr_ref_genomes/splitted -bypass True -machines 20
-#time yarn jar align.jar Bowtie -ifile biodata/humandata.fa -ofile bowtie_big/output -rfile /home/hadoop/bio/chr_ref_genomes/splitted -machines 20
+#time yarn jar align.jar WithoutBowtie -ifile biodata/humandata_100m.fa -ofile bypass_mr/output -rfile /home/hadoop/bio/chr_ref_genomes/splitted -bypass True -machines 20
+time yarn jar align.jar Bowtie -ifile fa_data/100.fa -ofile bowtie_big/output -rfile /home/hadoop/bio/chr_ref_genomes/splitted -machines 20
 
 #hdfs dfs -rm -r from/output
 #time yarn jar align.jar From -ifile bowtie/output  -ofile from/output -rfile /home/hadoop/bio/chr_ref_genomes/splitted -machines 20
