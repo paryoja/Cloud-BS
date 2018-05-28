@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -44,8 +45,12 @@ public class AlignMapper extends Mapper<LongWritable, Text, Text, Text> {
 
 	@Override
 	public void cleanup( Context context ) throws IOException, InterruptedException {
+		Configuration conf = context.getConfiguration();
+		String refPath = conf.get( "refPath" );
+
 		Runtime rt = Runtime.getRuntime();
-		Process pr = rt.exec( "mkdir /tmp/map" );
+		String temp_path = "/mnt/map";
+		Process pr = rt.exec( "mkdir " + temp_path );
 		BufferedReader input = new BufferedReader( new InputStreamReader( pr.getInputStream() ) );
 		String line = null;
 
@@ -60,8 +65,8 @@ public class AlignMapper extends Mapper<LongWritable, Text, Text, Text> {
 
 		int taskId = context.getTaskAttemptID().getTaskID().getId();
 
-		String ctInputPath = "/tmp/map/iv_C2T_" + taskId + ".fa";
-		String gaInputPath = "/tmp/map/iv_G2A_" + taskId + ".fa";
+		String ctInputPath = temp_path + "/iv_C2T_" + taskId + ".fa";
+		String gaInputPath = temp_path + "/iv_G2A_" + taskId + ".fa";
 		BufferedWriter bw_ct = new BufferedWriter( new FileWriter( ctInputPath ) );
 		BufferedWriter bw_ga = new BufferedWriter( new FileWriter( gaInputPath ) );
 		for( int i = 0; i < idList.size(); i++ ) {
@@ -74,17 +79,17 @@ public class AlignMapper extends Mapper<LongWritable, Text, Text, Text> {
 		bw_ga.close();
 
 		// String refPath = "/home/hadoop/bio/chr_ref_genomes";
-		String refPath = "/home/hadoop/bio/chr_ref_genomes";
+		// String refPath = "/home/ubuntu";
 
-		runBowtie2( refPath, "W_C2T", ctInputPath, "/tmp/map/" + "W_C2T_" + taskId + ".sam" );
-		runBowtie2( refPath, "C_C2T", ctInputPath, "/tmp/map/" + "C_C2T_" + taskId + ".sam" );
-		runBowtie2( refPath, "W_G2A", gaInputPath, "/tmp/map/" + "W_G2A_" + taskId + ".sam" );
-		runBowtie2( refPath, "C_G2A", gaInputPath, "/tmp/map/" + "C_G2A_" + taskId + ".sam" );
+		runBowtie2( refPath, "W_C2T", ctInputPath, temp_path + "W_C2T_" + taskId + ".sam" );
+		runBowtie2( refPath, "C_C2T", ctInputPath, temp_path + "C_C2T_" + taskId + ".sam" );
+		runBowtie2( refPath, "W_G2A", gaInputPath, temp_path + "W_G2A_" + taskId + ".sam" );
+		runBowtie2( refPath, "C_G2A", gaInputPath, temp_path + "C_G2A_" + taskId + ".sam" );
 
-		emitResult( context, "/tmp/map/" + "W_C2T_" + taskId + ".sam", "W_C2T" );
-		emitResult( context, "/tmp/map/" + "C_C2T_" + taskId + ".sam", "C_C2T" );
-		emitResult( context, "/tmp/map/" + "W_G2A_" + taskId + ".sam", "W_G2A" );
-		emitResult( context, "/tmp/map/" + "C_G2A_" + taskId + ".sam", "C_G2A" );
+		emitResult( context, temp_path + "W_C2T_" + taskId + ".sam", "W_C2T" );
+		emitResult( context, temp_path + "C_C2T_" + taskId + ".sam", "C_C2T" );
+		emitResult( context, temp_path + "W_G2A_" + taskId + ".sam", "W_G2A" );
+		emitResult( context, temp_path + "C_G2A_" + taskId + ".sam", "C_G2A" );
 
 		System.out.println( "Count: " + count );
 	}

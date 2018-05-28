@@ -86,6 +86,10 @@ public class AlignMain {
 
 	public static Job getLocalJob( Configuration conf, CommandLine cmd, String localOutPath )
 			throws IllegalArgumentException, IOException {
+		String refPath = cmd.getOptionValue( "rfile" );
+		System.out.println( refPath );
+		conf.set( "refPath", refPath );
+
 		final Job localJob = Job.getInstance( conf, "Align LOCAL" );
 
 		// localJob.setPartitionerClass( LocalPartitioner.class );
