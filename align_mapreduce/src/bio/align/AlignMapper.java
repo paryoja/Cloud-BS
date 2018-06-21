@@ -49,7 +49,7 @@ public class AlignMapper extends Mapper<LongWritable, Text, Text, Text> {
 		String refPath = conf.get( "refPath" );
 
 		Runtime rt = Runtime.getRuntime();
-		String temp_path = "/mnt/map";
+		String temp_path = "/tmp/map/";
 		Process pr = rt.exec( "mkdir " + temp_path );
 		BufferedReader input = new BufferedReader( new InputStreamReader( pr.getInputStream() ) );
 		String line = null;
