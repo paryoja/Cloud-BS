@@ -7,6 +7,19 @@ Cloud-BS is an efficient Bisulfite Sequencing alignment tool employing Apache Ha
 # Installation
 Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. For alignment we use Bowtie2, so that framework and programs should be prepared before executing Cloud-BS. 
 
+# Requirements
+* Apache Hadoop >= 3.7.3
+* Bowtie2
+
+# Usage
+* Building Index
+  - Input : Reference genome fasta file
+  - Output : HDFS directory to save index built from reference genome
+  - log : Local log file path
+  
+* Alignment
+ 
+
 # Cloud-BS on Amazon cloud
 Now on Amazon EC2, AMI image is available on region Ohio. Follow under this description step-by-step to deploy Cloud-BS by using AMI image.
 
