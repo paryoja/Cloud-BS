@@ -1,4 +1,4 @@
-[Cloud-BS website](https://paryoja.github.io/MRAlign/)
+[Cloud-BS website](https://paryoja.github.io/Cloud-BS/)
 
 # About Cloud-BS
 
