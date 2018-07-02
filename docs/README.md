@@ -1,7 +1,6 @@
 [Cloud-BS website](https://paryoja.github.io/Cloud-BS/)
 
 # About Cloud-BS
----
 Cloud-BS is an efficient Bisulfite Sequencing aligner designed for parallel execution on a distributed environment. Utilizing Apache Hadoop framework, the Cloud-BS splits sequencing reads into multiple blocks and transfers to distributed nodes. By designing each aligning procedure into a separate map and reduce tasks while internal key-value structure is optimized based on MapReduce programming model, the algorithm significantly improved aligning performance without sacrificing mapping accuracy. In addition, Cloud-BS minimizes the innate burden on a configuration of a distributed environment by providing a pre-configured cloud image.
 
 ![Figure](https://github.com/paryoja/Cloud-BS/blob/master/docs/workflow_v2.jpg?raw=true)
