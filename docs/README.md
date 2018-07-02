@@ -5,14 +5,18 @@ Cloud-BS is an efficient Bisulfite Sequencing aligner designed for parallel exec
 
 ![Figure](https://github.com/paryoja/Cloud-BS/blob/master/docs/workflow_v2.jpg?raw=true)
 
+
 # Installation
 Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. For alignment we use Bowtie2, so that framework and programs should be prepared before executing Cloud-BS. 
+
 
 ## Requirements
 * Apache Hadoop >= 2.7.3
 * Bowtie2
 
+
 # Running Cloud-BS
+
 
 ## Building Index
 
@@ -21,39 +25,40 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 
 2. Use **run.sh** to build an index for an reference genome.
 ```    
-    + Input : Reference genome fasta file path in HDFS directory
-    + Output : HDFS directory to save index built from reference genome
-    + log : Local log file path
+- Input : Reference genome fasta file path in HDFS directory
+- Output : HDFS directory to save index built from reference genome
+- log : Local log file path
 ```
 
 3. Use **set_index.sh** to distribute index to all nodes.
 ```
-    + ref_path : HDFS directory which has index built from reference genome
-    + local_path : local directory to save index in all nodes
+- ref_path : HDFS directory which has index built from reference genome
+- local_path : local directory to save index in all nodes
 ```
+
 
 ## Alignment
 
 ### Usage
 1. Move to **"MRAlign/align_mapreduce/run"**
 
-2. Use **setFile.sh** to put reads file in HDFS
+2. Use **setFile.sh** to put raw reads file in HDFS
 
 3. Use **run.sh** to map the bisulfite reads
 ```
-    + OUTPUT_PATH : HDFS directory to save output sam file
-    + INPUT_DIR : HDFS path with input fasta file
-    + INPUT_FILE : Input fasta file
-    + REFERENCE_DIR : local directory which has index built from reference genome
-    + RESULT_FILE : Output sam file name which will be saved in local directory
-    + NUM_NODES : the number of nodes in Hadoop cluster to execute
+- OUTPUT_PATH : HDFS directory to save output sam file
+- INPUT_DIR : HDFS path with input fasta file
+- INPUT_FILE : Input fasta file
+- REFERENCE_DIR : local directory which has index built from reference genome
+- RESULT_FILE : Output sam file name which will be saved in local directory
+- NUM_NODES : the number of nodes in Hadoop cluster to execute
 ```
  
 
 # Cloud-BS on Amazon cloud
 Now on Amazon EC2, AMI image is available on region Ohio. Follow under this description step-by-step to deploy Cloud-BS by using AMI image.
 
-1. Select the route 53 service and select the hosted zones
+1. Select the **Route 53** service and select "the hosted zones".
 
 2. Create hosted zone with name **"mralign.internal."**, private hosted zone and vpc id of the us-east-2 (Ohio) region (vpc id depends on the user). Take a note of vpc id.
 
@@ -82,8 +87,16 @@ Now on Amazon EC2, AMI image is available on region Ohio. Follow under this desc
 
 14. Connect to the master instance with its public ip and execute the start.sh and then connect to the other instances and execute the start.sh. You can ignore the warning "sudo: unable to resolve host ip-172-31-10-26".
 
-If you have launched instances with other series not written in above, then check your block device with **lsblk** command, and modify "xdva" or "nvme1n1" part in start.sh with your block device name appropriate to your instances.
+If you have launched instances with other series not written in above, then check your block device with **lsblk** command, and modify "xdva" or "nvme1n1" part in "start.sh" with your block device name appropriate to your instances.
 
 15. By using your web browser, connect "<public ip of the master node>:50070" and check every node is live. 
 Then, open "<public ip of the master node>:8088" and check all nodes are live.
 
+
+
+# Test data set
+\[[80 million](https://drive.google.com/file/d/17GgybHTlr534YkjsBwiIIgI8Hk8WBIM-/view?usp=sharing)/
+[120 million](https://drive.google.com/file/d/1dnYgvSXsGbomU5I-IgIbB1ZCOqWLIdgB/view?usp=sharing)/
+[160_million]()/
+[200_million]()/
+[400_million]()\]
