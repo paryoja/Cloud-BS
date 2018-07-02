@@ -10,7 +10,7 @@ Cloud-BS is an efficient Bisulfite Sequencing aligner designed for parallel exec
 Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. For alignment we use Bowtie2, so that framework and programs should be prepared before executing Cloud-BS. 
 
 
-## + Requirements
+#### Requirements
 * Apache Hadoop >= 2.7.3
 * Bowtie2
 
@@ -20,7 +20,7 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 
 ## Building Index
 
-### Usage
+### * Usage
 1. Move to **"MRAlign/align_mapreduce/run/index/build_index"**
 
 2. Use **run.sh** to build an index for an reference genome.
@@ -39,7 +39,7 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 
 ## Alignment
 
-### Usage
+### * Usage
 1. Move to **"MRAlign/align_mapreduce/run"**
 
 2. Use **setFile.sh** to put raw reads file in HDFS
@@ -97,6 +97,6 @@ Then, open "<public ip of the master node>:8088" and check all nodes are live.
 # Test data set
 \[[80 million](https://drive.google.com/file/d/17GgybHTlr534YkjsBwiIIgI8Hk8WBIM-/view?usp=sharing)/
 [120 million](https://drive.google.com/file/d/1dnYgvSXsGbomU5I-IgIbB1ZCOqWLIdgB/view?usp=sharing)/
-[160_million]()/
-[200_million]()/
+[160_million](https://drive.google.com/file/d/1XtP2tIndY9urKpd8ula1Yebgsc8Csi7m/view?usp=sharing)/
+[200_million](https://drive.google.com/file/d/10nmI2s71An2ronx0Z0KgiuaOv4En4Anq/view?usp=sharing)/
 [400_million]()\]
