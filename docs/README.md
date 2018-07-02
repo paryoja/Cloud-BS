@@ -1,10 +1,10 @@
 [Cloud-BS website](https://paryoja.github.io/Cloud-BS/)
 
 ### About Cloud-BS
-Cloud-BS is an efficient Bisulfite Sequencing aligner designed for parallel execution on a distributed environment. 
+Cloud-BS is an efficient Bisulfite Sequencing aligner designed for parallel execution on a distributed environment. Utilizing Apache Hadoop framework, the Cloud-BS splits sequencing reads into multiple blocks and transfers to distributed nodes. By designing each aligning procedure into a separate map and reduce tasks while internal key-value structure is optimized based on MapReduce programming model, the algorithm significantly improved aligning performance without sacrificing mapping accuracy. In addition, Cloud-BS minimizes the innate burden on a configuration of a distributed environment by providing a pre-configured cloud image.
 
 ### Installation
-Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. For alignment we use Bowtie2, so that framework and programs should be prepared before executing Cloud-BS. Utilizing Apache Hadoop framework, the Cloud-BS splits sequencing reads into multiple blocks and transfers to distributed nodes. By designing each aligning procedure into a separate map and reduce tasks while internal key-value structure is optimized based on MapReduce programming model, the algorithm significantly improved aligning performance without sacrificing mapping accuracy. In addition, Cloud-BS minimizes the innate burden on a configuration of a distributed environment by providing a pre-configured cloud image.
+Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. For alignment we use Bowtie2, so that framework and programs should be prepared before executing Cloud-BS. 
 
 #### Requirements
 * Apache Hadoop >= 2.7.3
@@ -18,11 +18,11 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 1. Move to **"MRAlign/align_mapreduce/run/index/build_index"**
 
 2. Use **run.sh** to build an index for an reference genome.
-    
+```    
     + Input : Reference genome fasta file path in HDFS directory
     + Output : HDFS directory to save index built from reference genome
     + log : Local log file path
-
+```
 
 3. Use **set_index.sh** to distribute index to all nodes.
     + ref_path : HDFS directory which has index built from reference genome
