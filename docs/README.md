@@ -10,7 +10,7 @@ Cloud-BS is an efficient Bisulfite Sequencing aligner designed for parallel exec
 Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. For alignment we use Bowtie2, so that framework and programs should be prepared before executing Cloud-BS. 
 
 
-## Requirements
++## Requirements
 * Apache Hadoop >= 2.7.3
 * Bowtie2
 
