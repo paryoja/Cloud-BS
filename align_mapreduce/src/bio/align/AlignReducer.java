@@ -142,7 +142,28 @@ public class AlignReducer extends Reducer<Text, Text, Text, Text> {
 				uniq = "U";
 			}
 			else {
-				return null;
+				int t = 1;
+				int is_unique = 0;
+				
+				while (t < sorted_list.size()){
+					String[] temp = sorted_list.get(t);
+					if((curr[1].equals(temp[1])) && (!curr[2].equals(temp[2])) && (!curr[3].equals(temp[3]))){
+						is_unique = 0;
+						break;
+					}else if ((curr[1].equals(temp[1])) && (curr[2].equals(temp[2])) && (curr[3].equals(temp[3]))){
+						is_unique = 1;
+					}
+					t = t + 1;
+				}
+
+				if (is_unique == 1){
+					value = curr;
+					uniq = "U";
+				}else{
+					return null;
+				}
+
+				//return null;
 				// # count num
 				// int cnt = 1;
 				// for( int i = 1; i < sorted_list.size(); i++ ) {
