@@ -65,8 +65,8 @@ Now on Amazon EC2, AMI image is available on region Ohio. Follow under this desc
 
 3. Select the ec2 service and select AMIs.
 
-4. Select public images and for users who will use **t2** series or **m4** series, search **ami-0bcf258bc56b128c6**.
-   Users who will user **m5** or **c5** series, search **ami-000faf9eb7d7a975d**.
+4. Select public images and for users who will use **t2** series or **m4** series, search **[ami-0bcf258bc56b128c6]**.
+   Users who will user **m5** or **c5** series, search **[ami-000faf9eb7d7a975d]**.
 
 5. Launch ami with instances having more than 16GB memory. **"Select Next: Configure instance Details"**
 
@@ -76,7 +76,7 @@ Now on Amazon EC2, AMI image is available on region Ohio. Follow under this desc
 
 8. Select **"Next: Add Tags"**
 
-9. Select **Next: Configure Security Group**
+9. Select **"Next: Configure Security Group"**
 
 10. Add TCP Rules with port range 4000 - 55000 from source 0.0.0.0/0.
 
