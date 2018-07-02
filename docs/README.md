@@ -59,7 +59,7 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 # Cloud-BS on Amazon cloud
 Now on Amazon EC2, AMI image is available on region Ohio. Follow under this description step-by-step to deploy Cloud-BS by using AMI image.
 
-1. Select the **Route 53** service and select "the hosted zones".
+1. Select the **"Route 53"** service and select "the hosted zones".
 
 2. Create hosted zone with name **"mralign.internal."**, private hosted zone and vpc id of the us-east-2 (Ohio) region (vpc id depends on the user). Take a note of vpc id.
 
@@ -72,23 +72,23 @@ Now on Amazon EC2, AMI image is available on region Ohio. Follow under this desc
 
 6. Enter the number of instances that you want to launch. Make sure that the vpc id is the same as that you entered in the route 53 service.
 
-7. Select **Next: Add Storage** Add an EBS storage with device name /dev/sdb and size more than 20 GB.
+7. Select **"Next: Add Storage"** Add an EBS storage with device name /dev/sdb and size more than 20 GB.
 
-8. Select **Next: Add Tags**
+8. Select **"Next: Add Tags"**
 
 9. Select **Next: Configure Security Group**
 
 10. Add TCP Rules with port range 4000 - 55000 from source 0.0.0.0/0.
 
-11. Select **review and launch.** Launch the instances.
+11. Select **"review and launch"** Launch the instances.
 
 12. Select one instance as the master node and take note of private ip of the instance. For instance, 172.31.11.224.
 
-13. Go back to the route 53 service and select hosted zones. Select **mralign.internal**. Create record set with name “master" and value "172.31.11.224".
+13. Go back to the route 53 service and select hosted zones. Select **"mralign.internal"**. Create record set with name “master" and value "172.31.11.224".
 
 14. Connect to the master instance with its public ip and execute the start.sh and then connect to the other instances and execute the start.sh. You can ignore the warning "sudo: unable to resolve host ip-172-31-10-26".
 
-If you have launched instances with other series not written in above, then check your block device with **lsblk** command, and modify "xdva" or "nvme1n1" part in "start.sh" with your block device name appropriate to your instances. 
+If you have launched instances with other series not written in above, then check your block device with **"lsblk"** command, and modify "xdva" or "nvme1n1" part in "start.sh" with your block device name appropriate to your instances. 
 
 By using your web browser, connect "<public ip of the master node>:50070" and check every node is live. Then, open "<public ip of the master node>:8088" and check all nodes are live.
 
