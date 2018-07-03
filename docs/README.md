@@ -24,7 +24,7 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 ### Usage
 1. Move to **"MRAlign/align_mapreduce/run/index/build_index"**
 
-2. Use **run.sh** to build an index for an reference genome.
+2. Use **run_build_index.sh** to build an index for an reference genome.
 ```    
 - Input : Reference genome fasta file path in HDFS directory
 - Output : HDFS directory to save index built from reference genome
@@ -45,7 +45,7 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 
 2. Use **setFile.sh** to put raw reads file in HDFS
 
-3. Use **run.sh** to map the bisulfite reads
+3. Use **run_align.sh** to map the bisulfite reads
 ```
 - OUTPUT_PATH : HDFS directory to save output sam file
 - INPUT_DIR : HDFS path with input fasta file
