@@ -65,8 +65,8 @@ Now on Amazon EC2, AMI image is available on region Ohio. Follow under this desc
 
 3. Select the ec2 service and select AMIs.
 
-4. Select public images and for users who will use **t2** series or **m4** series, search **[ami-0bcf258bc56b128c6]**.
-   Users who will user **m5** or **c5** series, search **[ami-000faf9eb7d7a975d]**.
+4. Select public images and for users who will use **t2** series or **m4** series, search **[ami-0156391b5803ec91d]**.
+   Users who will user **m5** or **c5** series, search **[ami-0a125ba12e5b67b98]**.
 
 5. Launch ami with instances having more than 16GB memory. **"Select Next: Configure instance Details"**
 
@@ -88,7 +88,7 @@ Now on Amazon EC2, AMI image is available on region Ohio. Follow under this desc
 
 14. Connect to the master instance with its public ip and execute the start.sh and then connect to the other instances and execute the start.sh. You can ignore the warning "sudo: unable to resolve host ip-172-31-10-26".
 
-If you have launched instances with other series not written in above, then check your block device with **"lsblk"** command, and modify "xdva" or "nvme1n1" part in "start.sh" with your block device name appropriate to your instances. 
+If you have launched instances with other series not written in above, then check your block device with **"lsblk"** command, and modify "xvdb" or "nvme1n1" part in "start.sh" with your block device name appropriate to your instances. 
 
 By using your web browser, connect "<public ip of the master node>:50070" and check every node is live. Then, open "<public ip of the master node>:8088" and check all nodes are live.
 
