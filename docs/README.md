@@ -51,7 +51,7 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
    It simply moves ~/simulated.fa file to fa_data/ directory in hdfs
    If you wish to align other sequence such as the test dataset in the bottom of this document, 
    move the bisulfite sequence to fa_data/ directory in hdfs by executing
-   **hdfs dfs -put <your bisulfite sequence file> fa_data/**
+   **hdfs dfs -put "your bisulfite sequence file\> fa_data/**
 
 3. Use **run_align.sh** to map the bisulfite reads
 ```
@@ -98,7 +98,7 @@ Now on Amazon EC2, AMI image is available on region Ohio. Follow under this desc
 
 If you have launched instances with other series not written in above, then check your block device with **"lsblk"** command, and modify "xvdb" or "nvme1n1" part in "start.sh" with your block device name appropriate to your instances. 
 
-By using your web browser, connect "<public ip of the master node>:50070" and check every node is live. Then, open "<public ip of the master node>:8088" and check all nodes are live.
+By using your web browser, connect "\<public ip of the master node\>:50070" and check every node is live. Then, open "\<public ip of the master node\>:8088" and check all nodes are live.
 
 
 
