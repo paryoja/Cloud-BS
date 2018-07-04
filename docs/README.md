@@ -26,7 +26,7 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 
 2. Use **run_build_index.sh** to build an index for an reference genome.
    It builds an index from a reference genome fasta file.
-   run_build_index.sh uses ~/chr1.fz file as a reference file but you may use **build_index.py** to convert your own reference file
+   The script **run_build_index.sh** uses **~/chr1.fa** file as a reference file but you may use **build_index.py** to convert your own reference file.
 
 ```    
 - Input : Reference genome fasta file path in HDFS directory
