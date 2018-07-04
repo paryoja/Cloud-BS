@@ -47,8 +47,8 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 ### Usage
 1. Move to **"MRAlign/align_mapreduce/run"**
 
-2. Use **setFile.sh** to put raw reads file in HDFS
-   It simply moves ~/simulated.fa file to fa_data/ directory in hdfs
+2. Use **setFile.sh** to put raw reads file in HDFS.
+   It simply moves ~/simulated.fa file to fa_data/ directory in hdfs.
    If you wish to align other sequence such as the test dataset in the bottom of this document, 
    move the bisulfite sequence to fa_data/ directory in hdfs by executing
    **hdfs dfs -put \<your bisulfite sequence file\> fa_data/**
