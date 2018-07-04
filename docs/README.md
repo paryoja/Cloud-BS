@@ -25,13 +25,17 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 1. Move to **"MRAlign/align_mapreduce/run/index/build_index"**
 
 2. Use **run_build_index.sh** to build an index for an reference genome.
+   It builds an index from a reference genome fasta file.
+   run_build_index.sh uses ~/chr1.fz file as a reference file but you may use **build_index.py** to convert your own reference file
+
 ```    
 - Input : Reference genome fasta file path in HDFS directory
 - Output : HDFS directory to save index built from reference genome
 - log : Local log file path
 ```
 
-3. Use **set_index.sh** to distribute index to all nodes.
+3. Use **set_index.sh** to distribute the index to all nodes.
+   
 ```
 - ref_path : HDFS directory which has index built from reference genome
 - local_path : local directory to save index in all nodes
@@ -44,6 +48,10 @@ Cloud-BS is implemented on Apach Hadoop framework and utilize HDFS file system. 
 1. Move to **"MRAlign/align_mapreduce/run"**
 
 2. Use **setFile.sh** to put raw reads file in HDFS
+   It simply moves ~/simulated.fa file to fa_data/ directory in hdfs
+   If you wish to align other sequence such as the test dataset in the bottom of this document, 
+   move the bisulfite sequence to fa_data/ directory in hdfs by executing
+   **hdfs dfs -put <your bisulfite sequence file> fa_data/**
 
 3. Use **run_align.sh** to map the bisulfite reads
 ```
