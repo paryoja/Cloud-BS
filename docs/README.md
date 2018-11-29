@@ -101,10 +101,5 @@ If you have launched instances with other series not written in above, then chec
 By using your web browser, connect "\<public ip of the master node\>:50070" and check every node is live. Then, open "\<public ip of the master node\>:8088" and check all nodes are live.
 
 
-
-# Test data set
-\[[80 million](https://drive.google.com/file/d/17GgybHTlr534YkjsBwiIIgI8Hk8WBIM-/view?usp=sharing)/
-[120 million](https://drive.google.com/file/d/1dnYgvSXsGbomU5I-IgIbB1ZCOqWLIdgB/view?usp=sharing)/
-[160 million](https://drive.google.com/file/d/1XtP2tIndY9urKpd8ula1Yebgsc8Csi7m/view?usp=sharing)/
-[200 million](https://drive.google.com/file/d/10nmI2s71An2ronx0Z0KgiuaOv4En4Anq/view?usp=sharing)/
-[400 million](https://drive.google.com/file/d/1UhlWeohe_pYGLvy3x4bYCN-XSci7x4Qq/view?usp=sharing)\]
+## Contact
+If you have any question or problem, please send a email to **miniymay@sookmyung.ac.kr**
