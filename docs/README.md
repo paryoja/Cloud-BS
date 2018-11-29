@@ -102,4 +102,4 @@ By using your web browser, connect "\<public ip of the master node\>:50070" and 
 
 
 ## Contact
-If you have any question or problem, please send a email to **miniymay@sookmyung.ac.kr**
+If you have any question or problem, please send an email to **miniymay@sookmyung.ac.kr**
